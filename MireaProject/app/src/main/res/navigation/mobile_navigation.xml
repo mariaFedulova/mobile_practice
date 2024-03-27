@@ -30,6 +30,11 @@
     <fragment
         android:id="@+id/nav_browser"
         android:name="ru.mirea.fedulovama.mireaproject.WebViewFragment"
-        android:label="fragment_web_view"
+        android:label="@string/menu_browser"
         tools:layout="@layout/fragment_web_view" />
+    <fragment
+        android:id="@+id/nav_worker"
+        android:name="ru.mirea.fedulovama.mireaproject.WorkerFragment"
+        android:label="@string/menu_worker"
+        tools:layout="@layout/fragment_worker" />
 </navigation>
