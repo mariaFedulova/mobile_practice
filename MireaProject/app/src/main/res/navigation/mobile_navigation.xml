@@ -37,4 +37,19 @@
         android:name="ru.mirea.fedulovama.mireaproject.WorkerFragment"
         android:label="@string/menu_worker"
         tools:layout="@layout/fragment_worker" />
+    <fragment
+        android:id="@+id/nav_accelerometer"
+        android:name="ru.mirea.fedulovama.mireaproject.AccelerometerFragment"
+        android:label="@string/menu_accelerometer"
+        tools:layout="@layout/fragment_accelerometer" />
+    <fragment
+        android:id="@+id/nav_camera"
+        android:name="ru.mirea.fedulovama.mireaproject.CameraFragment"
+        android:label="@string/menu_camera"
+        tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/nav_recorder"
+        android:name="ru.mirea.fedulovama.mireaproject.RecorderFragment"
+        android:label="@string/menu_recorder"
+        tools:layout="@layout/fragment_recorder" />
 </navigation>
