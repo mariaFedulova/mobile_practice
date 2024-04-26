@@ -15,4 +15,7 @@
     <string name="menu_data">Data</string>
     <string name="menu_browser">Browser</string>
     <string name="menu_worker">Worker</string>
+    <string name="menu_accelerometer">Accelerometer</string>
+    <string name="menu_camera">Camera</string>
+    <string name="menu_recorder">Recorder</string>
 </resources>
