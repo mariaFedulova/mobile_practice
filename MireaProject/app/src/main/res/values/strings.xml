@@ -18,4 +18,7 @@
     <string name="menu_accelerometer">Accelerometer</string>
     <string name="menu_camera">Camera</string>
     <string name="menu_recorder">Recorder</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_file_handling">File Handling</string>
+    <string name="add_file_description">Add file</string>
 </resources>

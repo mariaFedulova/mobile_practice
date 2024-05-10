@@ -39,5 +39,13 @@
             android:id="@+id/nav_recorder"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_recorder" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_profile" />
+        <item
+            android:id="@+id/nav_file_handling"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_file_handling" />
     </group>
 </menu>

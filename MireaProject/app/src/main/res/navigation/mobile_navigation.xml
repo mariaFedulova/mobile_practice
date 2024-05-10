@@ -52,4 +52,14 @@
         android:name="ru.mirea.fedulovama.mireaproject.RecorderFragment"
         android:label="@string/menu_recorder"
         tools:layout="@layout/fragment_recorder" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="ru.mirea.fedulovama.mireaproject.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_file_handling"
+        android:name="ru.mirea.fedulovama.mireaproject.FileHandlingFragment"
+        android:label="@string/menu_file_handling"
+        tools:layout="@layout/fragment_file_handling" />
 </navigation>
