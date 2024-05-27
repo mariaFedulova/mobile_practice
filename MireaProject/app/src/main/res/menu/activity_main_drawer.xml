@@ -47,5 +47,9 @@
             android:id="@+id/nav_file_handling"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_file_handling" />
+        <item
+            android:id="@+id/nav_internet"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_internet" />
     </group>
 </menu>
