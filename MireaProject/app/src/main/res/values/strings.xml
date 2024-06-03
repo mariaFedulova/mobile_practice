@@ -22,4 +22,5 @@
     <string name="menu_file_handling">File Handling</string>
     <string name="add_file_description">Add file</string>
     <string name="menu_internet">Internet</string>
+    <string name="menu_map">Map</string>
 </resources>
