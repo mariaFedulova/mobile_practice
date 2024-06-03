@@ -67,4 +67,9 @@
         android:name="ru.mirea.fedulovama.mireaproject.InternetFragment"
         android:label="@string/menu_internet"
         tools:layout="@layout/fragment_file_handling" />
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="ru.mirea.fedulovama.mireaproject.MapFragment"
+        android:label="@string/menu_map"
+        tools:layout="@layout/fragment_file_handling" />
 </navigation>
