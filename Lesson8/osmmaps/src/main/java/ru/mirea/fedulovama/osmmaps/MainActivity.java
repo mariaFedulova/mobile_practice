@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //настройка карты
         Configuration.getInstance().load(getApplicationContext(),
                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext()));
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         mapView.setZoomRounding(true);
         mapView.setMultiTouchControls(true);
 
+        //перемещение камеры
         IMapController mapController = mapView.getController();
         mapController.setZoom(15.0);
         GeoPoint startPoint = new GeoPoint(55.794229, 37.700772);

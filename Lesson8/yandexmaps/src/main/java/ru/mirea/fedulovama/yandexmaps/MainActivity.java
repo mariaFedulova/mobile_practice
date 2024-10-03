@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements UserLocationObjec
         //int	backgroundPermissionStatus	=	ContextCompat.checkSelfPermission(this,	Manifest.permission.ACCESS_BACKGROUND_LOCATION);
         int	finePermissionStatus	=	ContextCompat.checkSelfPermission(this,	Manifest.permission.ACCESS_FINE_LOCATION);
         //int	coarsePermissionStatus	=	ContextCompat.checkSelfPermission(this,	Manifest.permission.ACCESS_COARSE_LOCATION);
-        if	(finePermissionStatus ==	PackageManager.PERMISSION_GRANTED )	{
+        if	(finePermissionStatus == PackageManager.PERMISSION_GRANTED )	{
             loadUserLocationLayer();
         }
         else{
@@ -112,6 +112,4 @@ public class MainActivity extends AppCompatActivity implements UserLocationObjec
         userLocationLayer.setHeadingEnabled(true);
         userLocationLayer.setObjectListener(this);
     }
-
-
 }

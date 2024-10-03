@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ea41149-923a-4701-af30-1cc58fb0b7ed" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Lesson7/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson7/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lesson7/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson7/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lesson8/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson8/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lesson8/osmmaps/src/main/java/ru/mirea/fedulovama/osmmaps/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson8/osmmaps/src/main/java/ru/mirea/fedulovama/osmmaps/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lesson8/yandexmaps/src/main/java/ru/mirea/fedulovama/yandexmaps/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson8/yandexmaps/src/main/java/ru/mirea/fedulovama/yandexmaps/MainActivity.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2msgyLKCYSD3c7ZlB6l0D6O8SD9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/MireaMobileProjects/Lesson9/MovieProject"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ea41149-923a-4701-af30-1cc58fb0b7ed" name="Changes" comment="" />
+      <created>1727870950260</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727870950260</updated>
+    </task>
+    <servers />
+  </component>
+</project>
