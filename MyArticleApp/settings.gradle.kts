@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyArticleApp"
 include(":app")
- 
+include(":data")
+include(":domain")

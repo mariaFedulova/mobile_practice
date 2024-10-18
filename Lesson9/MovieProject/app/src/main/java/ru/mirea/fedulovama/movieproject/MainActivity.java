@@ -2,29 +2,28 @@ package ru.mirea.fedulovama.movieproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ru.mirea.fedulovama.movieproject.data.repository.MovieRepositoryImpl;
-import ru.mirea.fedulovama.movieproject.domain.models.Movie;
-import ru.mirea.fedulovama.movieproject.domain.repository.MovieRepository;
-import ru.mirea.fedulovama.movieproject.domain.usecases.GetFavoriteFilmUseCase;
-import ru.mirea.fedulovama.movieproject.domain.usecases.SaveFilmToFavoriteUseCase;
+import ru.mirea.fedulovama.data.repository.MovieRepositoryImpl;
+import ru.mirea.fedulovama.data.storage.MovieStorage;
+import ru.mirea.fedulovama.data.storage.sharedprefs.SharedPrefMovieStorage;
+import ru.mirea.fedulovama.domain.models.Movie;
+import ru.mirea.fedulovama.domain.repository.MovieRepository;
+import ru.mirea.fedulovama.domain.usecases.GetFavoriteFilmUseCase;
+import ru.mirea.fedulovama.domain.usecases.SaveFilmToFavoriteUseCase;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         EditText text = findViewById(R.id.editTextMovie);
         TextView textView = findViewById(R.id.textViewMovie);
-        MovieRepository movieRepository = new MovieRepositoryImpl(getApplicationContext());
+        MovieStorage sharedPrefMovieStorage = new SharedPrefMovieStorage(this);
+        MovieRepository movieRepository = new MovieRepositoryImpl(sharedPrefMovieStorage);
         findViewById(R.id.buttonSaveMovie).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

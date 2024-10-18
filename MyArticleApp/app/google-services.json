@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "615372679368",
+    "project_id": "myarticleapp-ebb92",
+    "storage_bucket": "myarticleapp-ebb92.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615372679368:android:82ba589577799fe4415dfd",
+        "android_client_info": {
+          "package_name": "ru.mirea.fedulovama.myarticleapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6WhaoHmehI0MMvGXU1w-4e0WwgHQMnxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
