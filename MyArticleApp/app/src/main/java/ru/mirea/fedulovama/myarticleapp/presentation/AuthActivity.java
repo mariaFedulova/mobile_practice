@@ -3,6 +3,7 @@ package ru.mirea.fedulovama.myarticleapp.presentation;
 import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,28 +18,26 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import ru.mirea.fedulovama.data.repository.UserRepositoryImpl;
 import ru.mirea.fedulovama.domain.repository.UserRepository;
-import ru.mirea.fedulovama.domain.usecases.SingInUseCase;
-import ru.mirea.fedulovama.domain.usecases.SingUpUseCase;
 import ru.mirea.fedulovama.myarticleapp.R;
 
 public class AuthActivity extends AppCompatActivity {
+    private AuthViewModel vm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-
-        UserRepository userRepository = new UserRepositoryImpl(FirebaseAuth.getInstance());
 
         TextInputEditText loginInput = findViewById(R.id.loginTextInput);
         TextInputEditText passInput = findViewById(R.id.passwordTextInput);
 
         Button singInButton = findViewById(R.id.singInButton);
 
+        vm = new ViewModelProvider(this, new AuthViewModelFactory(getApplicationContext(), FirebaseAuth.getInstance())).get(AuthViewModel.class);
+
         singInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean result = new SingInUseCase(userRepository)
-                        .execute(loginInput.getText().toString(), passInput.getText().toString());
+                boolean result = vm.singIn(loginInput.getText().toString(), passInput.getText().toString());
                 checkAuth(result);
                 String str = "Result is" + result;
                 Log.d(TAG, str);
@@ -48,8 +47,7 @@ public class AuthActivity extends AppCompatActivity {
         findViewById(R.id.singUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean result = new SingUpUseCase(userRepository)
-                        .execute(loginInput.getText().toString(), passInput.getText().toString());
+                boolean result = vm.singUp(loginInput.getText().toString(), passInput.getText().toString());
                 checkAuth(result);
             }
         });

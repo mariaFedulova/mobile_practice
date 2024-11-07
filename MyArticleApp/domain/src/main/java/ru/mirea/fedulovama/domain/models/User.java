@@ -22,4 +22,12 @@ public class User {
     public String getData(){
         return "Данные пользователя";
     }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public int getId(){
+        return this.id;
+    }
 }
