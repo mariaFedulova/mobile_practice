@@ -1,6 +1,8 @@
 package ru.mirea.fedulovama.myarticleapp.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,23 +12,29 @@ import android.widget.TextView;
 import java.util.List;
 
 import ru.mirea.fedulovama.myarticleapp.R;
-import ru.mirea.fedulovama.data.repository.ArticleRepositoryImpl;
 import ru.mirea.fedulovama.domain.models.Article;
-import ru.mirea.fedulovama.domain.repository.ArticleRepository;
-import ru.mirea.fedulovama.domain.usecases.GetArticlesUseCase;
 
 public class MainActivity extends AppCompatActivity {
-
+    private MainViewModel vm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView infoText = findViewById(R.id.infoText);
-        ArticleRepository articleRepository = new ArticleRepositoryImpl(getApplicationContext());
+        TextView userDataTextView = findViewById(R.id.userDataTextView);
+
+        vm = new ViewModelProvider(this, new MainViewModelFactory(getApplicationContext())).get(MainViewModel.class);
+        vm.getUserData().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                userDataTextView.setText(s);
+            }
+        });
+        vm.getUserText();
         findViewById(R.id.getAllArticlesButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                List<Article> articles = new GetArticlesUseCase(articleRepository).execute();
+                List<Article> articles = vm.getArticles();
                 StringBuilder builder = new StringBuilder();
                 for(Article article: articles){
                     builder.append("Название: ").append(article.getName()).append("\n");

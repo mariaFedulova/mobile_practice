@@ -1,7 +1,9 @@
 package ru.mirea.fedulovama.data.storage.sharedprefs;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import java.time.LocalDate;
 
@@ -27,13 +29,14 @@ public class SharedPrefMovieStorage implements MovieStorage {
         int movieId = sharedPreferences.getInt(ID_KEY, -1);
         return new Movie(movieId, movieName, movieDate);
     }
+    @SuppressLint("CommitPrefEdits")
     @Override
     public boolean save(Movie movie) {
-        sharedPreferences.edit().putString(KEY, movie.getName());
-        sharedPreferences.edit().putString(DATE_KEY,
-                String.valueOf(LocalDate.now()));
-        sharedPreferences.edit().putInt(ID_KEY, 1);
-        sharedPreferences.edit().commit();
+        sharedPreferences.edit()
+                .putString(KEY, movie.getName())
+                .putString(DATE_KEY, String.valueOf(LocalDate.now()))
+                .putInt(ID_KEY, 1)
+                .apply();
         return true;
     }
 }

@@ -33,6 +33,8 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:23.0.0")
     implementation("androidx.room:room-common:2.6.1")
     implementation("androidx.room:room-runtime:2.6.1")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     annotationProcessor("androidx.room:room-compiler:2.6.1")

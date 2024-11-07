@@ -8,7 +8,7 @@ public class GetUserDataUseCase {
     public GetUserDataUseCase(UserRepository userRepository){
         this.userRepository = userRepository;
     }
-    public String execute(User user){
-        return this.userRepository.getUserData( user);
+    public String execute(){
+        return this.userRepository.getUserData();
     }
 }

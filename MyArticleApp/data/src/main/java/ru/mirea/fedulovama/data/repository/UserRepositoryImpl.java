@@ -6,13 +6,12 @@ import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import ru.mirea.fedulovama.data.storage.UserStorage;
 import ru.mirea.fedulovama.data.storage.models.Article;
-import ru.mirea.fedulovama.domain.models.User;
+import ru.mirea.fedulovama.data.storage.models.User;
 import ru.mirea.fedulovama.domain.repository.UserRepository;
 
 public class UserRepositoryImpl implements UserRepository {
@@ -21,14 +20,14 @@ public class UserRepositoryImpl implements UserRepository {
     public UserRepositoryImpl(FirebaseAuth auth){
         this.auth = auth;
     }
-    public Boolean addUserArticle(ru.mirea.fedulovama.domain.models.Article article, User user) {
+    public Boolean addUserArticle(ru.mirea.fedulovama.domain.models.Article article, ru.mirea.fedulovama.domain.models.User user) {
         return null;
     }
-    public List<Integer> getUserArticles(User user){
+    public List<Integer> getUserArticles(ru.mirea.fedulovama.domain.models.User user){
         return user.getArticles();
     }
-    public String getUserData(User user){
-        return user.getData();
+    public String getUserData(){
+        return sharedPrefUserStorage.getUser();
     }
     public void logOut(){
         auth.signOut();
@@ -42,9 +41,9 @@ public class UserRepositoryImpl implements UserRepository {
                     } else {
                         Log.w(TAG, "signInWithEmail:failure", task.getException());
                         isSuccess.set(false);
-                        //Log.d(TAG, "" + isSuccess.get());
                     }
                 });
+        sharedPrefUserStorage.saveUser(new User(1, login));
         return isSuccess.get();
     }
     public Boolean singUp(String login, String pass){
@@ -58,22 +57,31 @@ public class UserRepositoryImpl implements UserRepository {
                         isSuccess.set(false);
                     }
                 });
+        sharedPrefUserStorage.saveUser(new User(1, login));
         return isSuccess.get();
     }
-    public Boolean changeUserInfo(User user){
+    public Boolean changeUserInfo(ru.mirea.fedulovama.domain.models.User user){
         return true;
     }
-    public Boolean saveArticleToFavorite(ru.mirea.fedulovama.domain.models.Article article, User user){
-        sharedPrefUserStorage.saveArticleToFav(mapToStorage(article));
+    public Boolean saveArticleToFavorite(ru.mirea.fedulovama.domain.models.Article article, ru.mirea.fedulovama.domain.models.User user){
+        sharedPrefUserStorage.saveArticleToFav(mapToStorageArticle(article));
         return true;
     }
 
-    private Article mapToStorage(ru.mirea.fedulovama.domain.models.Article article){
+    private Article mapToStorageArticle(ru.mirea.fedulovama.domain.models.Article article){
         return new Article(article.getId(), article.getName(),
                 article.getDescription());
     }
-    private ru.mirea.fedulovama.domain.models.Article mapToDomain( Article article){
+    private ru.mirea.fedulovama.domain.models.Article mapToDomainArticle(Article article){
         return new ru.mirea.fedulovama.domain.models.Article(article.getId(),
                 article.getName(), article.getDescription());
+    }
+
+    private User mapToStorageUser(ru.mirea.fedulovama.domain.models.User user){
+        return new User(user.getId(), user.getName());
+    }
+
+    private ru.mirea.fedulovama.domain.models.User mapToDomainUser(User user){
+        return new ru.mirea.fedulovama.domain.models.User(user.getId(), user.getName());
     }
 }
