@@ -7,14 +7,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import ru.mirea.fedulovama.data.network.ArticleApi;
+import ru.mirea.fedulovama.domain.ApiCallback;
 import ru.mirea.fedulovama.domain.models.Article;
 import ru.mirea.fedulovama.domain.repository.ArticleRepository;
 
 public class ArticleRepositoryImpl implements ArticleRepository {
     private Context context;
     private List<Article> articles;
-    public ArticleRepositoryImpl(Context context){
+    private ArticleApi articleApi;
+    public ArticleRepositoryImpl(Context context,ArticleApi articleApi){
         this.context = context;
+        this.articleApi = articleApi;
         this.articles = new ArrayList<>();
         this.articles.add(new Article(1, "25 фактов о Джейсоне Стэйтеме", "Мы собрали несколько фактов и цитат о жизни британского актера.", "article_one"));
         this.articles.add(new Article(2, "«Не говори никому»: хоррор в духе «Сплита», в котором Джеймс Макэвой снова играет мускулами", "В мировой прокат вышла новая лента компании Blumhouse — стабильного поставщика не очень дорогих, но качественных хорроров.", "article_two"));
@@ -49,5 +53,8 @@ public class ArticleRepositoryImpl implements ArticleRepository {
         SharedPreferences settings = context.getSharedPreferences("favorite_article", Context.MODE_PRIVATE);
         settings.edit().remove(String.valueOf(index)).apply();
         return true;
+    }
+    public void getArticlesFromApi(ApiCallback<List<Article>> apiCallback){
+        articleApi.getArticles(apiCallback);
     }
 }

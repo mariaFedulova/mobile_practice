@@ -71,11 +71,11 @@ public class UserRepositoryImpl implements UserRepository {
 
     private Article mapToStorageArticle(ru.mirea.fedulovama.domain.models.Article article){
         return new Article(article.getId(), article.getName(),
-                article.getDescription());
+                article.getDescription(), article.getImg());
     }
     private ru.mirea.fedulovama.domain.models.Article mapToDomainArticle(Article article){
         return new ru.mirea.fedulovama.domain.models.Article(article.getId(),
-                article.getName(), article.getDescription(), "");
+                article.getName(), article.getDescription(), article.getImg());
     }
 
     private User mapToStorageUser(ru.mirea.fedulovama.domain.models.User user){

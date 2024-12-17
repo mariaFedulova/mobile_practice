@@ -3,6 +3,7 @@ package ru.mirea.fedulovama.domain.repository;
 import java.util.Date;
 import java.util.List;
 
+import ru.mirea.fedulovama.domain.ApiCallback;
 import ru.mirea.fedulovama.domain.models.Article;
 
 public interface ArticleRepository {
@@ -14,4 +15,5 @@ public interface ArticleRepository {
     public List<Article> filterArticlesByTag(String tag);
     public Article removeArticleById(int index);
     public Boolean removeArticleFromFavsById(int index);
+    public void getArticlesFromApi(ApiCallback<List<Article>> apiCallback);
 }

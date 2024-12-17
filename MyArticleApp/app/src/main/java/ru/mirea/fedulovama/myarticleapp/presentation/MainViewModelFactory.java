@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import ru.mirea.fedulovama.data.network.ArticleApi;
 import ru.mirea.fedulovama.data.repository.ArticleRepositoryImpl;
 import ru.mirea.fedulovama.data.repository.UserRepositoryImpl;
 import ru.mirea.fedulovama.data.storage.sharedprefs.SharedPrefUserStorage;
@@ -24,8 +25,8 @@ public class MainViewModelFactory implements ViewModelProvider.Factory{
 
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        ArticleRepository articleRepository = new ArticleRepositoryImpl(context);
+        ArticleRepository articleRepository = new ArticleRepositoryImpl(context, new ArticleApi());
         UserRepository userRepository = new UserRepositoryImpl(FirebaseAuth.getInstance(), new SharedPrefUserStorage(context));
-        return (T) new MainViewModel(articleRepository, userRepository);
+        return (T) new MainViewModel(articleRepository, userRepository, context);
     }
 }
