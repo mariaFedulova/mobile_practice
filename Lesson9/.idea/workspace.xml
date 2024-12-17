@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ea41149-923a-4701-af30-1cc58fb0b7ed" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Lesson7/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson7/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lesson7/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson7/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lesson8/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson8/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lesson8/osmmaps/src/main/java/ru/mirea/fedulovama/osmmaps/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson8/osmmaps/src/main/java/ru/mirea/fedulovama/osmmaps/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lesson8/yandexmaps/src/main/java/ru/mirea/fedulovama/yandexmaps/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson8/yandexmaps/src/main/java/ru/mirea/fedulovama/yandexmaps/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyArticleApp/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyArticleApp/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyArticleApp/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyArticleApp/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +20,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
   <component name="ProjectId" id="2msgyLKCYSD3c7ZlB6l0D6O8SD9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,10 +32,12 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/MireaMobileProjects/Lesson9/MovieProject"
+    "git-widget-placeholder": "lesson12",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/mirea/4kurs/MireaMobileProjects/Lesson9/MovieProject"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

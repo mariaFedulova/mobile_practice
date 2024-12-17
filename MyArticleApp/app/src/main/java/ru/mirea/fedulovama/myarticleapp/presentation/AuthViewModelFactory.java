@@ -25,7 +25,7 @@ public class AuthViewModelFactory implements ViewModelProvider.Factory{
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         UserStorage sharedPrefUserStorage = new SharedPrefUserStorage(context);
-        UserRepository userRepository = new UserRepositoryImpl(auth);
+        UserRepository userRepository = new UserRepositoryImpl(auth,  new SharedPrefUserStorage(context));
         return (T) new AuthViewModel(userRepository);
     }
 }

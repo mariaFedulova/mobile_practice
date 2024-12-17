@@ -2,6 +2,7 @@ package ru.mirea.fedulovama.myarticleapp.presentation;
 
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -19,10 +20,13 @@ public class MainViewModel extends ViewModel {
     public UserRepository userRepository;
     private MutableLiveData<String> userData = new MutableLiveData<>();
 
+    private final MutableLiveData<List<Article>> items = new MutableLiveData<>();
+
     public MainViewModel(ArticleRepository articleRepository, UserRepository userRepository) {
         this.articleRepository = articleRepository;
         this.userRepository = userRepository;
         Log.d(MainViewModel.class.getSimpleName().toString(), "MainViewModel created");
+        items.setValue(getArticles());
     }
     @Override
     protected void onCleared() {
@@ -40,5 +44,18 @@ public class MainViewModel extends ViewModel {
 
     public MutableLiveData<String> getUserData(){
         return userData;
+    }
+
+    public LiveData<List<Article>> getItems() {
+        return items;
+    }
+
+    // Метод для добавления нового элемента в список
+    public void addItem(Article item) {
+        List<Article> currentList = items.getValue();
+        if (currentList != null) {
+            currentList.add(item);
+            items.setValue(currentList); // Обновляем LiveData
+        }
     }
 }

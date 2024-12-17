@@ -17,7 +17,8 @@ import ru.mirea.fedulovama.domain.repository.UserRepository;
 public class UserRepositoryImpl implements UserRepository {
     UserStorage sharedPrefUserStorage;
     private final FirebaseAuth auth;
-    public UserRepositoryImpl(FirebaseAuth auth){
+    public UserRepositoryImpl(FirebaseAuth auth, UserStorage sharedPrefUserStorage){
+        this.sharedPrefUserStorage = sharedPrefUserStorage;
         this.auth = auth;
     }
     public Boolean addUserArticle(ru.mirea.fedulovama.domain.models.Article article, ru.mirea.fedulovama.domain.models.User user) {
@@ -74,7 +75,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
     private ru.mirea.fedulovama.domain.models.Article mapToDomainArticle(Article article){
         return new ru.mirea.fedulovama.domain.models.Article(article.getId(),
-                article.getName(), article.getDescription());
+                article.getName(), article.getDescription(), "");
     }
 
     private User mapToStorageUser(ru.mirea.fedulovama.domain.models.User user){
