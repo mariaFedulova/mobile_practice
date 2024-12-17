@@ -1,11 +1,14 @@
 package ru.mirea.fedulovama.myarticleapp.presentation.recycler;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -33,12 +36,14 @@ public class ArticleRecyclerViewAdapter extends RecyclerView.Adapter<ArticleView
     @Override
     public void onBindViewHolder(ArticleViewHolder holder, int position) {
         Article article = this.articles.get(position);
-        String pkgName = context.getPackageName();
-        // Return 0 if not found.
-        int resID = context.getResources().getIdentifier(article.getImg(),
-                "drawable", pkgName);
-        // Bind data to viewholder
-        holder.getImgView().setImageResource(resID);
+        Log.d("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", article.getDescription());
+        Picasso.get()
+                .load(article.getImg())
+                .resize(100,100)
+                .centerCrop()
+                .error(R.drawable.error_image)
+                .placeholder(R.drawable.placeholder)
+                .into(holder.getImgView());
         holder.getArticleNameView().setText(article.getName());
         holder.getArticleDescriptionView().setText("ОПИСАНИЕ: " +
                 article.getDescription());

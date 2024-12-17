@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             itemAdapter.setItems(items); // Обновляем данные в адаптере
         });
         vm.getUserText();
+        vm.getArticlesFromApi();
         /*findViewById(R.id.getAllArticlesButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

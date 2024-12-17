@@ -16,4 +16,5 @@ public class Article {
     public String getDescription(){ return this.description; }
     public Integer getId(){return this.id;}
     public String getImg(){return this.img;}
+
 }

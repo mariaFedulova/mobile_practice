@@ -2,6 +2,7 @@ package ru.mirea.fedulovama.data.network;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -10,6 +11,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.mirea.fedulovama.data.storage.models.Article;
+import ru.mirea.fedulovama.domain.ApiCallback;
 
 public class ArticleApi {
 
@@ -28,26 +30,36 @@ public class ArticleApi {
         }
         return apiService;
     }
-    public void getArticles(final Callback<List<Article>> callback) {
+    public void getArticles(ApiCallback<List<ru.mirea.fedulovama.domain.models.Article>> apiCallback){
         Call<List<Article>> call = getInstance().getArticles();
         call.enqueue(new Callback<List<Article>>() {
             @Override
             public void onResponse(@NonNull Call<List<Article>> call, @NonNull Response<List<Article>> response) {
-                if (response.isSuccessful()) {
-                    List<Article> articles = response.body();
-                    // Обработка успешного ответа
-                    callback.onResponse(call, response);
+                if (response.isSuccessful() && response.body() != null) {
+                    List<ru.mirea.fedulovama.domain.models.Article> articles = mapToDomain(response.body());
+                    apiCallback.onSuccess(articles);
                 } else {
-                    // Обработка ошибки
-                    callback.onFailure(call, new Throwable("Ошибка при получении статей"));
+                    apiCallback.onFailure(new Exception("Error"));
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Article>> call, @NonNull Throwable t) {
                 // Обработка ошибки сети или других исключений
-                callback.onFailure(call, t);
+                apiCallback.onFailure((Exception) t);
             }
         });
+    }
+
+    List<ru.mirea.fedulovama.domain.models.Article> mapToDomain(List<Article> articles){
+        List<ru.mirea.fedulovama.domain.models.Article> articleList = new ArrayList<>();
+        for (Article article : articles) {
+            ru.mirea.fedulovama.domain.models.Article domainArticle = new ru.mirea.fedulovama.domain.models.Article(
+                    article.getId(), article.getName(), article.getDescription(), article.getImg()
+            );
+
+            articleList.add(domainArticle);
+        }
+        return articleList;
     }
 }
