@@ -16,11 +16,11 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     public ArticleRepositoryImpl(Context context){
         this.context = context;
         this.articles = new ArrayList<>();
-        this.articles.add(new Article(1, "25 фактов о Джейсоне Стэйтеме", "Мы собрали несколько фактов и цитат о жизни британского актера."));
-        this.articles.add(new Article(2, "«Не говори никому»: хоррор в духе «Сплита», в котором Джеймс Макэвой снова играет мускулами", "В мировой прокат вышла новая лента компании Blumhouse — стабильного поставщика не очень дорогих, но качественных хорроров."));
+        this.articles.add(new Article(1, "25 фактов о Джейсоне Стэйтеме", "Мы собрали несколько фактов и цитат о жизни британского актера.", "article_one"));
+        this.articles.add(new Article(2, "«Не говори никому»: хоррор в духе «Сплита», в котором Джеймс Макэвой снова играет мускулами", "В мировой прокат вышла новая лента компании Blumhouse — стабильного поставщика не очень дорогих, но качественных хорроров.", "article_two"));
         this.articles.add(new Article(2, "«Ничего не объясняй и давай задания»",
                 "В мировой прокат вышла новая лента, которая расскажет о том, как НЕ СТОИТ делать) " +
-                        "Вы хоть дедлайны сдвиньте, а то на изучение только три недели уходит."));
+                        "Вы хоть дедлайны сдвиньте, а то на изучение только три недели уходит.", "article_three"));
     }
     public List<Article> getArticles() {
         return this.articles;
@@ -31,7 +31,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 
     public Article getFavoriteArticles(){
         SharedPreferences settings = context.getSharedPreferences("favorite_article", Context.MODE_PRIVATE);
-        return new Article(1, settings.getString("favotite_article", ""), "");
+        return new Article(1, settings.getString("favotite_article", ""), "", "");
     }
     public Boolean editArticleById(int index, String name, String description){
         return true;
